@@ -226,7 +226,7 @@ public class MainFrame extends javax.swing.JFrame {
                  String errorMsg=""; 
                 String infoMsg="";
                 String regex1 = "[0-9]+";
-                String regex2="/^[A-Za-z]+$/";
+                String regex2="[A-Za-z]+";
                 Pattern regexString = Pattern.compile(regex1);
                 Matcher m=regexString.matcher(firstName);
                 Matcher m1=regexString.matcher(lastName);
