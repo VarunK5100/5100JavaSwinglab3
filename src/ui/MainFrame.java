@@ -67,16 +67,16 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(212, 212, 212))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel1.setText("FirstName");
@@ -223,7 +223,7 @@ public class MainFrame extends javax.swing.JFrame {
                  String email=emailTextField.getText();
                  String message=messageTextField.getText();
                 //boolean numeric=true;
-                String errorMsg=""; 
+                 String errorMsg=""; 
                 String infoMsg="";
                 String regex1 = "[0-9]+";
                 String regex2="/^[A-Za-z]+$/";
@@ -235,6 +235,7 @@ public class MainFrame extends javax.swing.JFrame {
                 
                  
                  try{
+                    
                      if(firstName.isEmpty()==true||m.matches()==true){
                          errorMsg="Entry in firstname is invalid, field cannot be blank or have numerical entry\n";
                      //JOptionPane.showMessageDialog(this, "Entry in firstname is invalid", "Error", HEIGHT);
@@ -243,7 +244,7 @@ public class MainFrame extends javax.swing.JFrame {
                        infoMsg=infoMsg+firstName+"\n"; 
                      }
                      if(lastName.isEmpty()==true||m1.matches()==true){
-                         infoMsg=infoMsg+ " Entry in last name is invalid, field cannot be blank or have numerial entry\n";
+                         errorMsg=errorMsg+ " Entry in last name is invalid, field cannot be blank or have numerial entry\n";
                      }
                      else{
                          infoMsg=infoMsg+" "+lastName+"\n";
@@ -271,13 +272,15 @@ public class MainFrame extends javax.swing.JFrame {
                      else{
                          infoMsg=infoMsg+ " "+message;
                      }
-                     if(!errorMsg.isEmpty()==true){
+                     if(errorMsg.isEmpty()==false){
                      JOptionPane.showMessageDialog(this, errorMsg, "Alert", HEIGHT);
                      return;
+                     
                      }
                      else{
                         JOptionPane.showMessageDialog(this, infoMsg, "Alert", HEIGHT); 
                         return;
+                        
                      }
                  }catch (Exception e){
                      JOptionPane.showMessageDialog(this, "Default error", "Error", HEIGHT);
